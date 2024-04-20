@@ -39,6 +39,16 @@ public class ProductController {
         return productRepository.findByName(name);
     }
 
+    @GetMapping("/products/{price}")
+    public List<Product> getAllProductsGreaterThanPrice(@PathVariable Float price){
+        return productRepository.findByPriceGreaterThanEqual(price);
+    }
+
+    @GetMapping("/products/description/{description}")
+    public List<Product> getAllProductsByDescription(@PathVariable String description){
+        return productRepository.findByDescription(description);
+    }
+
     @GetMapping("/products/categories")
     public List<Category> getAllCategories() {
         return iProductService.getAllCategories();
