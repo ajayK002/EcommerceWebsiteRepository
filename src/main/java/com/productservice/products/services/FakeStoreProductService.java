@@ -7,6 +7,7 @@ import com.productservice.products.exceptions.ProductRangeUndefinedException;
 import com.productservice.products.models.Category;
 import com.productservice.products.models.Product;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Qualifier("FakeStoreProductService")
 public class FakeStoreProductService implements IProductService {
 
     @Autowired
@@ -104,7 +106,7 @@ public class FakeStoreProductService implements IProductService {
 
         product.setId(productResponseDtoFS.getId());
         product.setName(productResponseDtoFS.getTitle());
-        product.setDescription(productResponseDtoFS.getDescription());
+        product.setDescr(productResponseDtoFS.getDescription());
         product.setImage(productResponseDtoFS.getImage());
         product.setPrice(productResponseDtoFS.getPrice());
         product.setCategory(new Category());

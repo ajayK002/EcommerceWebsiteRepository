@@ -8,6 +8,7 @@ import com.productservice.products.models.Product;
 import com.productservice.products.repositories.ProductRepository;
 import com.productservice.products.services.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,7 @@ import java.util.List;
 public class ProductController {
 
     @Autowired
+    @Qualifier("FakeStoreProductService")
     IProductService iProductService;
 
     @Autowired
